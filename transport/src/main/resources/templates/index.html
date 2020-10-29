@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mainpage</title>
+    <!--Bootstrap CSS-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    <nav class="navbar navbar-light bg-light">
+        <div>
+        <a class="navbar-brand" th:href="@{/home}">
+          <img th:src="@{/img/driver.png}" width="30" height="30" class="d-inline-block align-left" alt="">
+          Transportation
+        </a>
+        </div>
+    </nav>
+    <div class=container>
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+              <h1 class="display-4">Transportation Table</h1>
+              <p class="lead">Display all shipment properties </p>
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-bordered table-inverse table-responsive">
+                <thead class="thead-inverse">
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Status</th>
+                        <th>Start Destination</th>
+                        <th>Finish Destination</th>
+                        <th>Start Date</th>
+                        <th>Finish Date</th>
+                        <th>Ship Brand</th>
+                        <th>Description</th>
+                        <th>Weight</th>
+                        <th>Ship Payment</th>
+                        <th>Total Payment</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="ship : ${shipment} ">
+                            <td th:text="${ship.sId}"></td>
+                            <td th:text="${ship.sName}"></td>
+                            <td th:text="${ship.sStatus}"></td>
+                            <td th:text="${ship.sInitDest}"></td>
+                            <td th:text="${ship.sFinishDest}"></td>
+                            <td th:text="${ship.sInitDate}"></td>
+                            <td th:text="${ship.sFinishDate}"></td>
+                            <td th:text="${ship.sShipBrand}"></td>
+                            <td th:text="${ship.sDesc}"></td>
+                            <td th:text="${ship.sWeight}"></td>
+                            <td th:text="${ship.sPayment}"></td>
+                            <td th:text="${ship.sTotalPayment}"></td>
+                        </tr>
+                    </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <!--Bootstrap JS-->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
